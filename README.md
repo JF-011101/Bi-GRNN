@@ -75,23 +75,15 @@ nohup python ./scripts/run_imputation.py --config config/brits/air36.yaml --in-s
 ```	
 ### la
 ``` 
-nohup python ./scripts/run_imputation.py --config config/bigrnn/la_block.yaml --in-sample False > log_bigrnn_la_blockF.log &
-nohup python ./scripts/run_imputation.py --config config/bigrnn/la_block.yaml --in-sample True > log_bigrnn_la_blockT.log &
-nohup python ./scripts/run_imputation.py --config config/brits/la_block.yaml --in-sample False > log_brits_la_blockF.log &
-nohup python ./scripts/run_imputation.py --config config/brits/la_block.yaml --in-sample True > log_brits_la_blockT.log &	
-nohup python ./scripts/run_imputation.py --config config/bigrnn/la_point.yaml --in-sample False > log_bigrnn_la_pointF.log &
-nohup python ./scripts/run_imputation.py --config config/bigrnn/la_point.yaml --in-sample True > log_bigrnn_la_pointT.log &
-nohup python ./scripts/run_imputation.py --config config/brits/la_point.yaml --in-sample False > log_brits_la_pointF.log &
-nohup python ./scripts/run_imputation.py --config config/brits/la_point.yaml --in-sample True > log_brits_la_pointT.log &
+nohup python ./scripts/run_imputation.py --config config/bigrnn/la_block.yaml > log_bigrnn_la_blockF.log &
+nohup python ./scripts/run_imputation.py --config config/bigrnn/la_block.yaml > log_bigrnn_la_blockT.log &
+nohup python ./scripts/run_imputation.py --config config/brits/la_block.yaml > log_brits_la_blockF.log &
+nohup python ./scripts/run_imputation.py --config config/brits/la_block.yaml > log_brits_la_blockT.log &	
 ```	
 ### bay
 ```
-nohup python ./scripts/run_imputation.py --config config/bigrnn/bay_block.yaml --in-sample False > log_bigrnn_bay_blockF.log &
-nohup python ./scripts/run_imputation.py --config config/bigrnn/bay_block.yaml --in-sample True > log_bigrnn_bay_blockT.log &
-nohup python ./scripts/run_imputation.py --config config/brits/bay_block.yaml --in-sample False > log_brits_bay_blockF.log &
-nohup python ./scripts/run_imputation.py --config config/brits/bay_block.yaml --in-sample True > log_brits_bay_blockT.log &
-nohup python ./scripts/run_imputation.py --config config/bigrnn/bay_point.yaml --in-sample False > log_bigrnn_bay_pointF.log &
-nohup python ./scripts/run_imputation.py --config config/bigrnn/bay_point.yaml --in-sample True > log_bigrnn_bay_pointT.log &
-nohup python ./scripts/run_imputation.py --config config/brits/bay_point.yaml --in-sample False > log_brits_bay_pointF.log &
-nohup python ./scripts/run_imputation.py --config config/brits/bay_point.yaml --in-sample True > log_brits_bay_pointT.log &
+nohup python ./scripts/run_imputation.py --config config/bigrnn/bay_block.yaml > log_bigrnn_bay_blockF.log &
+nohup python ./scripts/run_imputation.py --config config/bigrnn/bay_block.yaml > log_bigrnn_bay_blockT.log &
+nohup python ./scripts/run_imputation.py --config config/brits/bay_block.yaml > log_brits_bay_blockF.log &
+nohup python ./scripts/run_imputation.py --config config/brits/bay_block.yaml > log_brits_bay_blockT.log &
 ```
