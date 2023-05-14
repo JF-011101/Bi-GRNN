@@ -185,11 +185,7 @@ def run_experiment(args):
                                      scheduler_kwargs={
                                          'eta_min': 0.0001,
                                          'T_max': args.epochs
-                                     },
-                                     alpha=args.alpha,
-                                     hint_rate=args.hint_rate,
-                                     g_train_freq=args.g_train_freq,
-                                     d_train_freq=args.d_train_freq)
+                                     })
     filler_kwargs = parser_utils.filter_args(args={**vars(args), **additional_filler_hparams},
                                              target_cls=filler_cls,
                                              return_dict=True)
