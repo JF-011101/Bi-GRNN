@@ -24,26 +24,14 @@ from lib.utils.parser_utils import str_to_bool
 
 
 def has_graph_support(model_cls):
-    return model_cls in [models.GRINet, models.MPGRUNet, models.BiMPGRUNet]
+    return model_cls in [models.BIGRNNet, models.MPGRUNet, models.BiMPGRUNet]
 
 
 def get_model_classes(model_str):
     if model_str == 'brits':
         model, filler = models.BRITSNet, fillers.BRITSFiller
-    elif model_str == 'grin':
-        model, filler = models.GRINet, fillers.GraphFiller
-    elif model_str == 'mpgru':
-        model, filler = models.MPGRUNet, fillers.GraphFiller
-    elif model_str == 'bimpgru':
-        model, filler = models.BiMPGRUNet, fillers.GraphFiller
-    elif model_str == 'var':
-        model, filler = models.VARImputer, fillers.Filler
-    elif model_str == 'gain':
-        model, filler = models.RGAINNet, fillers.RGAINFiller
-    elif model_str == 'birnn':
-        model, filler = models.BiRNNImputer, fillers.MultiImputationFiller
-    elif model_str == 'rnn':
-        model, filler = models.RNNImputer, fillers.Filler
+    elif model_str == 'bigrnn':
+        model, filler = models.BIGRNNet, fillers.GraphFiller
     else:
         raise ValueError(f'Model {model_str} not available.')
     return model, filler
@@ -93,11 +81,7 @@ def parse_args():
     parser.add_argument('--warm-up', type=int, default=0)
     # graph params
     parser.add_argument("--adj-threshold", type=float, default=0.1)
-    # gain hparams
-    parser.add_argument('--alpha', type=float, default=10.)
-    parser.add_argument('--hint-rate', type=float, default=0.7)
-    parser.add_argument('--g-train-freq', type=int, default=1)
-    parser.add_argument('--d-train-freq', type=int, default=5)
+    
 
     known_args, _ = parser.parse_known_args()
     model_cls, _ = get_model_classes(known_args.model_name)

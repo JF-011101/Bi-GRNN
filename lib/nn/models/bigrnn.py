@@ -6,7 +6,7 @@ from ..layers import BiGRIL
 from ...utils.parser_utils import str_to_bool
 
 
-class GRINet(nn.Module):
+class BIGRNNet(nn.Module):
     def __init__(self,
                  adj,
                  d_in,
@@ -22,7 +22,7 @@ class GRINet(nn.Module):
                  layer_norm=False,
                  merge='mlp',
                  impute_only_holes=True):
-        super(GRINet, self).__init__()
+        super(BIGRNNet, self).__init__()
         self.d_in = d_in
         self.d_hidden = d_hidden
         self.d_u = int(d_u) if d_u is not None else 0

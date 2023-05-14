@@ -13,7 +13,7 @@ samples_per_epoch: 5120  # 160 batch of 32
 batch_size: 32
 aggregate_by: ['mean']
 
-model_name: 'grin'
+model_name: 'bigrnn'
 pred_loss_weight: 1
 
 d_hidden: 64
