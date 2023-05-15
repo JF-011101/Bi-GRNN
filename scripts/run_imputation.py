@@ -24,7 +24,7 @@ from lib.utils.parser_utils import str_to_bool
 
 
 def has_graph_support(model_cls):
-    return model_cls in [models.BIGRNNet, models.MPGRUNet, models.BiMPGRUNet]
+    return model_cls is models.BIGRNNet
 
 
 def get_model_classes(model_str):
