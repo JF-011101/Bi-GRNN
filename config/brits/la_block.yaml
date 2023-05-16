@@ -1,7 +1,6 @@
 dataset_name: 'la_block'
 window: 24
 
-detrend: False
 scale: True
 scaling_axis: 'channels'
 scaled_target: True

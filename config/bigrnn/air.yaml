@@ -3,7 +3,6 @@ window: 24
 
 adj_threshold: 0.1
 
-detrend: False
 scale: True
 scaling_axis: 'global'  # ['channels', 'global']
 scaled_target: True

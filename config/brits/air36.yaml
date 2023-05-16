@@ -1,7 +1,6 @@
 dataset_name: 'air36'
 window: 36
 
-detrend: False
 scale: True
 scaling_axis: 'channels'
 scaled_target: True

@@ -38,7 +38,7 @@ def parse_args():
     if args.imputers[0] == 'all':
         args.imputers = ['mean', 'knn', 'mf', 'mice']
     if not args.in_sample:
-        args.imputers = [name for name in args.imputers if name in ['mean', 'mice']]
+        args.imputers = [name for name in args.imputers if name in ['mean', 'mice', 'knn']]
     return args
 
 
