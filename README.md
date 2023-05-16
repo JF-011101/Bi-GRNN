@@ -40,13 +40,13 @@ python ./scripts/run_baselines.py --dataset air36 air bay bay_noise la la_noise 
 ```
 python ./scripts/run_baselines.py --dataset air36 air bay bay_noise la la_noise --imputers knn > log_baseline_knn.log
 ```
-### mf（较慢）
+### mf
 ```
 python ./scripts/run_baselines.py --dataset air36 air bay --imputers mf > log_baseline_mf.log
 nohup python ./scripts/run_baselines.py --dataset bay_noise la la_noise --imputers mf > log_baseline_mf_add.log &
 python ./scripts/run_baselines.py --dataset air36 --imputers mf --in-sample False > log_baseline_mf_F.log
 ```
-### mice（较慢）
+### mice
 ```
 nohup python ./scripts/run_baselines.py --dataset air36 --imputers mice > log_baseline_mice.log &
 nohup python ./scripts/run_baselines.py --dataset air bay --imputers mice > log_baseline_mice.log &
