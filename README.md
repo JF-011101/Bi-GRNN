@@ -39,10 +39,11 @@ python ./scripts/run_baselines.py --dataset air36 air bay bay_noise la la_noise 
 ### knn
 ```
 python ./scripts/run_baselines.py --dataset air36 air bay bay_noise la la_noise --imputers knn > log_baseline_knn.log
+python ./scripts/run_baselines.py --dataset air36 air bay bay_noise la la_noise --imputers knn --in-sample False > log_baseline_knn_F.log
 ```
 ### mf
 ```
-python ./scripts/run_baselines.py --dataset air36 air bay --imputers mf > log_baseline_mf.log
+python ./scripts/run_baselines.py --dataset air36 air bay bay_noise la la_noise --imputers mf > log_baseline_mf.log
 nohup python ./scripts/run_baselines.py --dataset bay_noise la la_noise --imputers mf > log_baseline_mf_add.log &
 python ./scripts/run_baselines.py --dataset air36 --imputers mf --in-sample False > log_baseline_mf_F.log
 ```

@@ -2,6 +2,7 @@ import copy
 import datetime
 import os
 import pathlib
+import time
 from argparse import ArgumentParser
 
 import numpy as np
@@ -194,7 +195,7 @@ def run_experiment(args):
     ########################################
     # training                             #
     ########################################
-
+    start_time = time.time()
     # callbacks
     early_stop_callback = EarlyStopping(monitor='val_mae', patience=args.patience, mode='min')
     checkpoint_callback = ModelCheckpoint(dirpath=logdir, save_top_k=1, monitor='val_mae', mode='min')
@@ -210,7 +211,7 @@ def run_experiment(args):
                          callbacks=[early_stop_callback, checkpoint_callback])
 
     trainer.fit(filler, datamodule=dm)
-
+    train_time = time.time() - start_time
     ########################################
     # testing                              #
     ########################################
@@ -242,13 +243,14 @@ def run_experiment(args):
     aggr_methods = ensure_list(args.aggregate_by)
     df_hats = prediction_dataframe(y_hat, index, dataset.df.columns, aggregate_by=aggr_methods)
     df_hats = dict(zip(aggr_methods, df_hats))
+    eval_time = time.time() - start_time - train_time
     for aggr_by, df_hat in df_hats.items():
         # Compute error
         print(f'- AGGREGATE BY {aggr_by.upper()}')
         for metric_name, metric_fn in metrics.items():
             error = metric_fn(df_hat.values, df_true.values, eval_mask).item()
             print(f' {metric_name}: {error:.4f}')
-
+    print(f"Training time: {train_time} seconds\nTesting time: {eval_time} seconds")
     return y_true, y_hat, mask
 
 

@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 
+import time
 import numpy as np
 from fancyimpute import MatrixFactorization, IterativeImputer
 from sklearn.neighbors import kneighbors_graph
@@ -179,6 +180,7 @@ def get_imputer(imputer_name, args):
 
 
 def run(imputer, dataset, train_slice):
+    start_time = time.time()
     test_slice = ~train_slice
     if args.in_sample:
         x_train, mask_train = dataset.numpy(), dataset.training_mask
@@ -196,6 +198,8 @@ def run(imputer, dataset, train_slice):
     for metric, metric_fn in metrics.items():
         error = metric_fn(y_hat, y_true, eval_mask)
         print(f'{imputer.name} on {ds_name} {metric}: {error:.4f}')
+    train_time = time.time() - start_time
+    print(f"Imputing time: {train_time} seconds")
 
 
 if __name__ == '__main__':
