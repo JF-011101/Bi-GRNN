@@ -29,6 +29,10 @@ pip install torchmetrics==0.5
 pip install pandas==1.4.2
 pip install sklearn==0.0
 ```
+查看日志面板：
+```
+tensorboard --logdir=./logs/ --port=6007
+```
 ## `run_baselines.py`
 ### mean 
 
